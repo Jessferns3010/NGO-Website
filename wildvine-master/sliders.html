@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Styles for the image slider */
+    .slider {
+      width: 100%;
+      height: auto; /* Set the height to auto to accommodate varying image heights */
+      overflow: hidden;
+    }
+    
+    .slider img {
+      width: 100%;
+      height: auto; /* Set the height to auto to maintain the original aspect ratio of the images */
+      object-fit: contain; /* Use "contain" instead of "cover" to fit the entire image within the container without cropping */
+    }
+    
+    .slider-controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .slider-controls button {
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <input type="radio" name="slide" id="img1" checked>
+            <input type="radio" name="slide" id="img2">
+            <input type="radio" name="slide" id="img3">
+            <input type="radio" name="slide" id="img4">
+            <input type="radio" name="slide" id="img5">
+    <img src="\wildvine-master\assets\images\RescueDiaries\p2.png" alt="Image 1">
+    <img src="\wildvine-master\assets\images\RescueDiaries\p4.png" alt="Image 2">
+    <img src="\wildvine-master\assets\images\RescueDiaries\p2.png" alt="Image 3">
+    <img src="\wildvine-master\assets\images\RescueDiaries\p6.png" alt="Image 4">
+    <img src="\wildvine-master\assets\images\RescueDiaries\p5.png" alt="Image 5">
+  </div>
+  
+  <div class="slider-controls">
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+  
+  <script>
+    // JavaScript code for image slider
+    var sliderIndex = 0;
+    var slides = document.querySelectorAll('.slider img');
+    
+    function showSlide(index) {
+      if (index >= slides.length) {
+        sliderIndex = 0;
+      } else if (index < 0) {
+        sliderIndex = slides.length - 1;
+      } else {
+        sliderIndex = index;
+      }
+      
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      
+      slides[sliderIndex].style.display = 'block';
+    }
+    
+    function nextSlide() {
+      showSlide(sliderIndex + 1);
+    }
+    
+    function prevSlide() {
+      showSlide(sliderIndex - 1);
+    }
+    
+    // Show the first slide
+    showSlide(sliderIndex);
+    
+    // Automatically advance to the next slide every 3 seconds
+    setInterval(nextSlide, 3000);
+  </script>
+</body>
+</html>
