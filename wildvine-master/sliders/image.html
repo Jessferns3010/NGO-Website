@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Slider | With Manual Buttons and Autoplay Navigation Visibility</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="header" data-header>
+      <div class="container">
+  
+        <h1>
+          <div class="logo"><img src="\wildvine-master\assets\images\WSA logo.png"/></div>
+        </h1>
+  
+        <select name="language" class="lang-switch">
+  
+          <option value="english">English</option>
+          <option value="french">French</option>
+          <option value="spanish">Spanish</option>
+  
+        </select>
+  
+        <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+  
+        <nav class="navbar" data-navbar>
+  
+          <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+  
+          <a href="#" class="logo">Wildvine</a>
+  
+          <ul class="navbar-list">
+  
+            <li>
+              <a href="#home" class="navbar-link" data-nav-link>
+                <span>Home</span>
+  
+                <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+            </li>
+  
+            <li>
+              <a href="#about" class="navbar-link" data-nav-link>
+                <span>About</span>
+  
+                <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+            </li>
+  
+            <li>
+              <a href="\wildvine-master\service\service.html" class="navbar-link" data-nav-link>
+                <span>Service</span>
+  
+                <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+            </li>
+  
+            <li>
+              <a href="\wildvine-master\donate\donate.html" class="navbar-link" data-nav-link>
+                <span>Donate</span>
+  
+                <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+            </li>
+  
+            <li>
+              <a href="\sliders\image.html" class="navbar-link" data-nav-link>
+                <span>Gallery</span>
+  
+                <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+            </li>
+  
+            <li>
+              <a href="contact.html" class="navbar-link" data-nav-link>
+                <span>Contact</span>
+  
+                <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+            </li>
+  
+          </ul>
+  
+        </nav>
+  
+        <div class="header-action">
+  
+          <button class="search-btn" aria-label="Search">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+  
+          <button class="btn btn-primary">
+            <span>Donation</span>
+  
+            <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+          </button>
+  
+        </div>
+  
+      </div>
+    </header>
+
+    <div class="img-slider">
+      <div class="slide active">
+        <img src="p1.png" alt="">
+        <div class="info">
+          <h2>Slide 01</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="p2.png" alt="">
+        <div class="info">
+          <h2>Slide 02</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="p3.png" alt="">
+        <div class="info">
+          <h2>Slide 03</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="p4.png" alt="">
+        <div class="info">
+          <h2>Slide 04</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="p5.png" alt="">
+        <div class="info">
+          <h2>Slide 05</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="p6.png" alt="">
+        <div class="info">
+          <h2>Slide 06</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="p7.png" alt="">
+        <div class="info">
+          <h2>Slide 07</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+      </div>
+    </div>
+    <button class="a" ><a href="/index.html">Home</a></button>
+
+    <script type="text/javascript">
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 10000);
+      }
+      repeater();
+    }
+    repeat();
+    </script>
+
+  </body>
+</html>

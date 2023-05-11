@@ -1,0 +1,27 @@
+body{
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(bg.png);
+    background-size:cover;
+    background-position: center;
+    color: #ffff !important;
+}
+.services{
+    margin:90px auto;
+    text-align: center;
+
+}
+h1{
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color:rgb(255,153,51)
+}
+h1:after{
+    content:'';
+    background: white;
+    display:block;
+    width:150px;
+    margin:10px auto;
+    height:3px;
+}
+h3{
+    color:rgb(144,238,144);
+}

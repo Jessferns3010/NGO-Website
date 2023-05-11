@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EmailSubscription</title>
+        <link href="style.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        <div class="hero">
+            <h3>WeSaveAnimals</h3>
+            <h1>A non profit organization<br>Welcome</h1>
+            <p>Subscribe for getting updates</p>
+            <form name="submit-to-google-sheet">
+                <input type="email" name="Email" placeholder="email id" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <span id="msg"></span>
+            <button><a href="\wildvine-master\index.html">Go back home</a></button>
+        </div>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyh5BYuwdU50FwzNMjLvejGNTZBF5PDvdDLXE6xTEoV1a1KP-zGfgNxMB_8_GiWreu7JA/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg=document.getElementById("msg")
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML="Thank you for subscribing"
+                    setTimeout(function(){
+                        msg.innerHTML=""
+                    },2000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+    </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WeSaveAnimals Donation Page</title>
+	<style>
+		.container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			margin: 0 auto;
+			width: 80%;
+			padding: 20px;
+		}
+		body{
+			background: -webkit-linear-gradient(to right, rgb(255,153,51), #159957);  
+  background: linear-gradient(to right, rgb(255,153,51) , #159957);
+  font-family:  'Oswald', sans-serif;
+  
+		}
+
+		.form-container {
+			flex: 1;
+			margin-left: 50px;
+		}
+		img{
+			border-radius: 20px;
+			height:250px;
+		}
+
+		form {
+			margin: 0 auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			-webkit-backdrop-filter: blur(16px) saturate(180%);
+    		background-color: rgba(255, 255, 255, 0.582);
+    		border-radius: 12px;
+		}
+
+		input[type=text], input[type=email], input[type=tel] {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			margin-top: 6px;
+			margin-bottom: 16px;
+			resize: vertical;
+		}
+
+		input[type=submit] {
+			background-color: #0b0b0b;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		input[type=submit]:hover {
+			background-color: #000000;
+		}
+
+		.poster {
+			flex: 1;
+			text-align: center;
+		}
+
+		.poster img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.message {
+			margin-top: 20px;
+			color: rgb(0, 0, 0);
+			font-weight: bold;
+			text-align: center;
+		}
+
+		.donation-form {
+			display: none;
+			margin-top: 20px;
+		}
+		.click{
+			background-color: black;
+			color:white;
+			border-radius:5px;
+			cursor: pointer;
+			height:50px;
+			width:100px;
+			text-align:center;
+			font-size:15px;
+
+		}
+		.a{
+			border:none;
+			font-size: 17px;
+		}
+		.click:hover
+		{
+			background-color: grey;
+			color:black;
+		}
+
+		@media screen and (max-width: 768px) {
+			.container {
+				flex-direction: column;
+			}
+
+			.poster {
+				margin-top: 20px;
+			}
+
+			.form-container {
+				margin: 20px auto;
+			}
+		}
+	</style>
+	<script>
+		function showDonationForm() {
+			var message = document.getElementById("donation-message");
+			var form = document.getElementById("donation-form");
+			message.style.display = "none";
+			form.style.display = "block";
+		}
+		
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="poster">
+			<img src="We Save Animals (WSA) welfare trutate Bank Of India(SBI).png" alt="Donate Now">
+		</div>
+		<div class="form-container">
+			<div id="donation-message" class="message">
+				<p>If you are willing to donate, please click the button below:</p>
+				<button onclick="showDonationForm()" class="click">Click Here</button>
+			</div>
+			<div id="donation-form" class="donation-form">
+				<form action="process_donation.php" method="post">
+					<h2>Donate to WeSaveAnimals</h2>
+					<label for="name">Name:</label>
+					<input type="text" id="name" name="name" placeholder="Your name.." required>
+
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email" placeholder="Your email.." required>
+					<label for="phone">Phone:</label>
+					<input type="tel" id="phone" name="phone" placeholder="Your phone number.." required>
+					<button onclick="showThankYouMessage()" class="click">Donate</button>
+					<button class="a"><a href="\wildvine-master\index.html">Go back home</a></button>
+				</form>
+				</div>
+				
+			
+		</div>
+	</div>
+	
